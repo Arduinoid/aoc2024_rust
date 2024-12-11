@@ -1,0 +1,3 @@
+# Advent of Code 2024 - Rust
+
+Yet again I will attempt to do this and learn Rust at the same time...
