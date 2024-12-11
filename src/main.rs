@@ -13,19 +13,25 @@ fn main() {
 fn day_one_part_one() {
     println!("day one part one");
     let data = retrieve_input_data("./puzzle_input/d1p1.txt");
-    let col1 = Vec::new();
-    let col2 = Vec::new();
+    let mut col1 = Vec::new();
+    let mut col2 = Vec::new();
+    let mut n = 1;
     for line in data.split("\n") {
-        let (first, second): (String, String) = line.split(" ").collect();
+        println!("line {}: {:?}", n, line);
+        if line == "" {break;}
+        let mut iter = line.split_whitespace();
+        let first = iter.next().unwrap();
+        let second = iter.next().unwrap();
         col1.push(first.parse::<i32>().unwrap());
         col2.push(second.parse::<i32>().unwrap());
+        n += 1;
     }
     col1.sort();
     col2.sort();
-    println!("column1: {}", col1);
-    println!("column2: {}", col2);
+    // println!("column1: {:?}", col1);
+    // println!("column2: {:?}", col2);
 }
 
-fn retrieve_input_data(path: str) -> String {
+fn retrieve_input_data(path: &str) -> String {
     fs::read_to_string(path).unwrap()
 }
